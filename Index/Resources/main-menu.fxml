@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#switchToLogin" text="Log out" />
+                        <MenuItem mnemonicParsing="false" text="Settings" />
+                        <MenuItem mnemonicParsing="false" onAction="#closeOnClick" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#addItem" text="Add Item" />
+                     <MenuItem mnemonicParsing="false" onAction="#delItem" text="Delete Item" />
+                     <MenuItem mnemonicParsing="false" onAction="#updateItemName" text="Update Item Name" />
+                        <MenuItem mnemonicParsing="false" onAction="#updateItemPrice" text="Update Item Price" />
+                        <MenuItem mnemonicParsing="false" onAction="#updateItemQty" text="Update Item Quantity" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Reports">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Pick Form" />
+                     </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#aboutClicked" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </VBox>
+   </top>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged In As: ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="18.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Lookup:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="userLogin" layoutX="165.0" layoutY="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="itemIdLookup" layoutX="140.0" layoutY="88.0" onAction="#searchItem" promptText="Barcode or ISBN" />
+            <Button fx:id="search" layoutX="303.0" layoutY="88.0" mnemonicParsing="false" onAction="#searchItem" text="Search" />
+            <TableView fx:id="ItemTable" layoutX="14.0" layoutY="129.0" prefHeight="400.0" prefWidth="545.0">
+               <columns>
+                  <TableColumn fx:id="itemIdColumn" prefWidth="138.0" text="Item ID" />
+                  <TableColumn fx:id="itemNameColumn" prefWidth="159.0" text="Name" />
+                  <TableColumn fx:id="itemPriceColumn" prefWidth="111.0" text="Price" />
+                  <TableColumn fx:id="itemQtyColumn" prefWidth="140.0" text="Quantity" />
+               </columns>
+            </TableView>
+            <HBox layoutX="14.0" layoutY="544.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#searchItems" text="Search All Inventory" />
+               </children>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addItem" text="Add Item">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
+               </children>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#delItem" text="Delete Item">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
+               </children>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#updateItemName" text="Update Item Name">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
+               </children>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#updateItemPrice" text="Update Item Price">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
+               </children>
+            </HBox>
+            <TextArea fx:id="commandResultArea" layoutX="385.0" layoutY="14.0" prefHeight="99.0" prefWidth="172.0" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" right="12.0" />
+         </padding>
+      </AnchorPane>
+   </center>
+</BorderPane>

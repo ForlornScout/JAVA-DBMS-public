@@ -1,0 +1,22 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "java.project.sourcePaths": [
+            "gui",
+            "Index",
+            "db"
+        ],
+        "java.project.referencedLibraries": {
+            "include": [
+                "lib/**/*.jar"
+            ],
+            "exclude": [
+            ]
+        },
+        "java.configuration.updateBuildConfiguration": "automatic"
+    }
+}
